@@ -1,5 +1,4 @@
 <template>
-  <div class="container">
   <div class="tile is-ancestor">
   <div class="tile is-vertical is-8">
     <div class="tile">
@@ -18,7 +17,7 @@
           <div class="control">
             <div class="tags has-addons">
               <span class="tag is-dark">前端</span>
-              <span class="tag is-info">Good JS</span>
+              <span class="tag is-link">Good JS</span>
             </div>
           </div>
 
@@ -41,19 +40,19 @@
           <div class="control">
             <div class="tags has-addons">
               <span class="tag is-light">后端</span>
-              <span class="tag is-warning">Java</span>
+              <span class="tag is-success">Java</span>
             </div>
           </div>
           <div class="control">
             <div class="tags has-addons">
               <span class="tag is-light">后端</span>
-              <span class="tag is-success">Python</span>
+              <span class="tag is-link">Python</span>
             </div>
           </div>
           <div class="control">
             <div class="tags has-addons">
               <span class="tag is-light">后端</span>
-              <span class="tag is-dark">C/C++</span>
+              <span class="tag is-primary">C/C++</span>
             </div>
           </div>
         </div>
@@ -76,7 +75,32 @@
     </div>
     <div class="tile is-parent">
       <article class="tile is-child box">
-        我还没想到这放什么
+      <nav class="level is-mobile">
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">现任成员</p>
+            <p class="title">13</p>
+          </div>
+        </div>
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">大三</p>
+            <p class="title">5</p>
+          </div>
+        </div>
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">大二</p>
+            <p class="title">8</p>
+          </div>
+        </div>
+        <div class="level-item has-text-centered">
+          <div>
+            <p class="heading">大一</p>
+            <p class="title">???</p>
+          </div>
+        </div>
+      </nav>
       </article>
     </div>
   </div>
@@ -86,12 +110,11 @@
       <div class="content">
        <p>零点工作室有一个很大的特点是对算法兴趣较浓. </p>
           <p>算法并不是想象中的那么高上大的东西, 我们培养的只是一种在解决问题过程中, 不断挑战自己突破自己, 最后优雅解决某个问题的能力. </p>
-          <p>这不仅会提高你的编程自信, 也对之后的求职有极大的帮助.</p>
+          <p>这不仅会提高你的<strong>编程自信</strong>, 也对之后的求职有极大的帮助.</p>
           <p>另外我们崇尚自由, 并不要求你一定要某个特定的语言. 无论网页设计, 还是游戏乃至服务器, 都有学长学姐.</p> 
       </div>
-    </article>
-  </div>
-</div>
+      </article>
+    </div>
   </div>
 </template>
 

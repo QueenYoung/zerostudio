@@ -5,7 +5,7 @@
       <input :type="type"
         class="input" 
         :placeholder="placeholder"
-        :value="email"
+        :value="inputValue"
         @input="getInput"
         >
       <span class="icon is-small is-left">
@@ -15,6 +15,7 @@
         <i class="fa" :class="iconRight"> </i>
       </span>
     </p>
+    <p class="help is-danger" v-if="status === false">{{warning}}</p>
   </div>
 </template>
 
@@ -31,17 +32,19 @@ export default {
       type: String,
       required: true
     },
-    status
+    status,
+    index: Number,
+    warning: String
   },
   methods: {
     getInput(event) {
-      this.email = event.target.value
-      this.$emit('showInput', this.email)
+      this.inputValue = event.target.value
+      this.$emit('showInput', this.inputValue, this.index)
     }
   },
   data() {
     return {
-      email: ''
+      inputValue: ''
     }
   },
   computed: {
