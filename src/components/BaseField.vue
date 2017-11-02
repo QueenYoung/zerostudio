@@ -7,6 +7,7 @@
         :placeholder="placeholder"
         :value="inputValue"
         @input="getInput"
+        :name="name"
         >
       <span class="icon is-small is-left">
         <i class="fa" :class="iconLeft"> </i>
@@ -34,7 +35,8 @@ export default {
     },
     status,
     index: Number,
-    warning: String
+    warning: String,
+    name: String
   },
   methods: {
     getInput(event) {

@@ -1,5 +1,9 @@
 <template>
-  <form @submit.prevent="login" class="container">
+  <form @submit.prevent="login" id="my-form"
+    class="container"
+    action="https://api.staticman.net/v2/entry/QueenYoung/zerostudio/master/"
+      method="POST"
+    >
     <my-field v-for="(field, index) in fields" :key="index"
       v-bind="field"
       :status="status[index]"
@@ -11,7 +15,7 @@
       <label for="" class="label">同学是女装大佬还是?</label>
       <div class="control">
         <div class="select">
-          <select v-model="sex">
+          <select v-model="sex" name="fields[sex]">
             <option disabled value="">性别</option>
             <option value="男">👨🏻</option>
             <option value="女">👩🏻</option>
@@ -25,7 +29,7 @@
       <label for="" class="label">同学哪个院的?</label>
       <div class="control">
         <div class="select">
-          <select v-model="college">
+          <select v-model="college" name="fields[college]">
             <option disabled value="">院系</option>
             <option>软件院</option>
             <option>计信院</option>
@@ -40,7 +44,7 @@
       <label class="label">我们喜欢妹子多的班级🤓</label>
       <div class="control">
         <div class="select">
-          <select v-model="classroom">
+          <select v-model="classroom" name="fields[classroom]">
             <option disabled value="">班级</option>
             <option v-for="n in 14" :key="n">{{n}}</option>
           </select>
@@ -51,7 +55,7 @@
     <div class="field">
       <label class="label">很酷, 真的</label>
       <div class="control">
-        <textarea class="textarea" 
+        <textarea class="textarea" name="fields[introduce]"
         placeholder="介绍一下你自己" v-model="introduce"/>
       </div>
     </div>
@@ -84,17 +88,19 @@ export default {
           placeholder: '比如: 乔布斯',
           type: 'text',
           labelTitle: '名字',
-          warning: '不要用英文名耍我'
+          warning: '不要用英文名耍我',
+          name: 'fields[name]'
         },
         {
           iconName: 'mobile',
           placeholder: '不要瞎给手机号码',
           type: 'tel',
-          labelTitle: '手机'
+          labelTitle: '手机',
+          name: 'fields[telphone]'
         }
       ],
       status: Array.apply(null, { length: 2 }),
-      inputs: Array.apply(null, { length: 2 }),
+      inputs: ['', ''],
       sex: '',
       college: '',
       classroom: '',
@@ -102,6 +108,13 @@ export default {
     }
   },
   methods: {
+    clearInput() {
+      this.inputs = ['', '']
+      this.sex = ''
+      this.college = ''
+      this.classroom = ''
+      this.introduce = ''
+    },
     yo(input, index) {
       this.inputs.splice(index, 1, input)
       if (index === 0) {
@@ -111,22 +124,27 @@ export default {
       }
     },
     login() {
-      const fields = [{
-        name: this.inputs[0],
-        telphone: this.inputs[1],
-        classroom: this.classroom,
-        sex: this.sex,
-        introduce: this.introduce,
-        collage: this.college
-      }]
+      const fields = {
+        fields: [{
+          name: this.inputs[0],
+          telphone: this.inputs[1],
+          classroom: this.classroom,
+          sex: this.sex,
+          introduce: this.introduce,
+          college: this.college
+        }]
+      }
       const urls = 'https://api.staticman.net/v2/entry/QueenYoung/zerostudio/master/'
 
-      console.log(fields)
       fetch(urls, {
         method: 'POST',
-        body: JSON.stringify({fields}),
-        mode: 'cors'
+        body: JSON.stringify(fields),
+        mode: 'cors',
+        headers: {
+          'Content-Type': 'application/json'
+        }
       })
+      this.clearInput()
     },
     canLogin() {
       return (
