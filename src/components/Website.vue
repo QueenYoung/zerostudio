@@ -4,8 +4,7 @@
     <div class="section">
       <tiles/>
       <hr>
-      <h2 class="title">加入我们</h2>
-      <my-form/>
+      <a href="http://bossbang.cc/f/59f9df3ce7aea941a8667b8c" target="_blank" class="button is-primary">加入我们</a>
     </div>
   </main>
 </template>
@@ -13,14 +12,12 @@
 <script>
   import Hero from './Hero'
   import Tiles from './Tile'
-  import Form from './my-form'
   import '../movetriangle'
 
   export default {
     components: {
       'hero': Hero,
-      'tiles': Tiles,
-      'my-form': Form
+      'tiles': Tiles
     }
   }
 </script>
