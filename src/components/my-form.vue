@@ -3,6 +3,7 @@
     class="container"
     action="https://api.staticman.net/v2/entry/QueenYoung/zerostudio/master/"
       method="POST"
+      name="zero"
     >
     <my-field v-for="(field, index) in fields" :key="index"
       v-bind="field"
@@ -125,14 +126,14 @@ export default {
     },
     login() {
       const fields = {
-        fields: [{
-          name: this.inputs[0],
-          telphone: this.inputs[1],
-          classroom: this.classroom,
-          sex: this.sex,
-          introduce: this.introduce,
-          college: this.college
-        }]
+        fields: {
+          'fields[name]': this.inputs[0],
+          'fields[telphone]': this.inputs[1],
+          'fields[classroom]': this.classroom,
+          'fields[sex]': this.sex,
+          'fields[introduce]': this.introduce,
+          'fields[college]': this.college
+        }
       }
       const urls = 'https://api.staticman.net/v2/entry/QueenYoung/zerostudio/master/'
 
