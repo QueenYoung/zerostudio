@@ -1,9 +1,9 @@
 <template>
 <section class="hero is-medium is-bold" :class="colorClass">
   <div class="hero-body">
-    <div class="content container">
+    <div class="container">
       <h1 class="title is-size-1">{{title | capitalized}}</h1>
-      <h2 class="subtitle is-size-4">{{subtitle | capitalized}}</h2>
+      <h2 class="subtitle is-size-3">{{subtitle | capitalized}}</h2>
     </div>
   </div>
 </section>

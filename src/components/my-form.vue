@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="login">
+  <form @submit.prevent="login" class="container">
     <my-field v-for="(field, index) in fields" :key="index"
       v-bind="field"
       :status="status[index]"

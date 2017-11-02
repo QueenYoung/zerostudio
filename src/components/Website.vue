@@ -1,9 +1,9 @@
 <template>
   <main class="">
-    <hero color="info" title="That's Zero"></hero>
-    <br>
-    <div class="container">
+    <hero color="info" title="We're coming" subtitle="零点招新"></hero>
+    <div class="section">
       <tiles/>
+      <hr>
       <h2 class="title">加入我们</h2>
       <my-form/>
     </div>
@@ -14,6 +14,7 @@
   import Hero from './Hero'
   import Tiles from './Tile'
   import Form from './my-form'
+  import '../movetriangle'
 
   export default {
     components: {
