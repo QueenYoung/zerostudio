@@ -24,7 +24,7 @@
           <div class="control">
             <div class="tags has-addons">
               <span class="tag is-dark">前端</span>
-              <span class="tag is-success">Beautifil Design</span>
+              <span class="tag is-success">Beautiful Design</span>
             </div>
           </div>
 

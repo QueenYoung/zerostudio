@@ -111,7 +111,22 @@ export default {
       }
     },
     login() {
-      alert(this.inputs, this.sex)
+      const fields = [{
+        name: this.inputs[0],
+        telphone: this.inputs[1],
+        classroom: this.classroom,
+        sex: this.sex,
+        introduce: this.introduce,
+        collage: this.college
+      }]
+      const urls = 'https://api.staticman.net/v2/entry/QueenYoung/zerostudio/master/'
+
+      console.log(fields)
+      fetch(urls, {
+        method: 'POST',
+        body: JSON.stringify({fields}),
+        mode: 'cors'
+      })
     },
     canLogin() {
       return (
